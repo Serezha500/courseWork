@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DocumentFormat.OpenXml.Presentation;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,7 +10,7 @@ namespace courseWork
     internal class User
     {
         string name, surname, patronymic, login;
-        bool chClient, chCount, chSeller, chGoods, chGoodsInvoice, chAccounts, chInvoice;
+        bool chClient, chCount, chSeller, chGoods, chGoodsInvoice, chAccounts, chInvoice, needUpdate = false;
         string accessClient, accessCount, accessSeller, accessGoods, accessGoodsInvoice, accessAccounts, accessInvoice;
 
         public User(string name, string surname, string patronymic, string login, bool chClient, bool chCount, bool chSeller, bool chGoods, bool chGoodsInvoice, bool chAccounts, bool chInvoice, string accessClient, string accessCount, string accessSeller, string accessGoods, string accessGoodsInvoice, string accessAccounts, string accessInvoice)
@@ -52,5 +53,6 @@ namespace courseWork
         public string AccessGoodsInvoice { get => accessGoodsInvoice; set => accessGoodsInvoice = value; }
         public string AccessAccounts { get => accessAccounts; set => accessAccounts = value; }
         public string AccessInvoice { get => accessInvoice; set => accessInvoice = value; }
+        public bool NeedUpdate { get => needUpdate; set => needUpdate = value; }
     }
 }

@@ -3,6 +3,7 @@ using System.Data;
 using System.Windows.Forms;
 using Npgsql;
 using System.IO;
+using System.Linq.Expressions;
 
 namespace courseWork
 {
@@ -76,17 +77,17 @@ namespace courseWork
         {
             if (!currentUser.ChAccounts) // Установка доступа к таблицам
                 accounts.Enabled = false;
-            if (!currentUser.ChClient)
+            if (!currentUser.ChClient || currentUser.NeedUpdate)
                 client.Enabled = false;
-            if (!currentUser.ChCount)
+            if (!currentUser.ChCount || currentUser.NeedUpdate)
                 count.Enabled = false;
-            if (!currentUser.ChGoods)
+            if (!currentUser.ChGoods || currentUser.NeedUpdate)
                 goods.Enabled = false;
-            if (!currentUser.ChGoodsInvoice)
+            if (!currentUser.ChGoodsInvoice || currentUser.NeedUpdate)
                 goodsInvoice.Enabled = false;
-            if (!currentUser.ChInvoice)
+            if (!currentUser.ChInvoice || currentUser.NeedUpdate)
                 invoice.Enabled = false;
-            if (!currentUser.ChSeller)
+            if (!currentUser.ChSeller || currentUser.NeedUpdate)
                 seller.Enabled = false;
             txt.WriteLine($"Пользователь {currentUser.Surname} {currentUser.Name} {currentUser.Patronymic} зашёл в БД в {DateTime.Now}"); // Логирование
         }
@@ -109,7 +110,7 @@ namespace courseWork
 
         private void exit_Click(object sender, EventArgs e)
         {
-            Application.Exit(); // Выход из программы
+            Close();
         }
 
         private void helper_Click(object sender, EventArgs e)
@@ -149,15 +150,6 @@ namespace courseWork
             sellerF.Show(); // Открытие формы Seller
             txt.WriteLine($"Пользователь {currentUser.Surname} {currentUser.Name} {currentUser.Patronymic} открыл таблицу Seller в {DateTime.Now}"); // Логирование
         }
-
-        private void Warehouse_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            txt.WriteLine($"Пользователь {currentUser.Surname} {currentUser.Name} {currentUser.Patronymic} вышел из БД в {DateTime.Now}"); // Логирование
-            txt.Close();
-            npgsql.Close();
-            Application.Exit(); // Закрытие программы
-        }
-
         private void accounts_Click(object sender, EventArgs e)
         {
             accountsTable = GetData("SELECT *from logins");

@@ -41,7 +41,6 @@
             this.first = new System.Windows.Forms.TextBox();
             this.sign = new System.Windows.Forms.Label();
             this.chSign = new System.Windows.Forms.CheckBox();
-            this.helper = new System.Windows.Forms.Label();
             this.delete = new System.Windows.Forms.Button();
             this.edit = new System.Windows.Forms.Button();
             this.Clear = new System.Windows.Forms.Button();
@@ -161,21 +160,11 @@
             // chSign
             // 
             this.chSign.AutoSize = true;
-            this.chSign.Location = new System.Drawing.Point(383, 298);
+            this.chSign.Location = new System.Drawing.Point(383, 299);
             this.chSign.Name = "chSign";
-            this.chSign.Size = new System.Drawing.Size(82, 17);
+            this.chSign.Size = new System.Drawing.Size(15, 14);
             this.chSign.TabIndex = 62;
-            this.chSign.Text = "Посредник";
             this.chSign.UseVisualStyleBackColor = true;
-            // 
-            // helper
-            // 
-            this.helper.AutoSize = true;
-            this.helper.Location = new System.Drawing.Point(269, 532);
-            this.helper.Name = "helper";
-            this.helper.Size = new System.Drawing.Size(313, 13);
-            this.helper.TabIndex = 69;
-            this.helper.Text = "Для удаления и изменения записи достаточно ввести ИНН ";
             // 
             // delete
             // 
@@ -252,7 +241,7 @@
             // 
             this.reset.Location = new System.Drawing.Point(818, 379);
             this.reset.Name = "reset";
-            this.reset.Size = new System.Drawing.Size(69, 42);
+            this.reset.Size = new System.Drawing.Size(73, 42);
             this.reset.TabIndex = 138;
             this.reset.Text = "Сбросить";
             this.reset.UseVisualStyleBackColor = true;
@@ -308,7 +297,6 @@
             this.Controls.Add(this.search);
             this.Controls.Add(this.info);
             this.Controls.Add(this.warning);
-            this.Controls.Add(this.helper);
             this.Controls.Add(this.delete);
             this.Controls.Add(this.edit);
             this.Controls.Add(this.Clear);
@@ -327,6 +315,7 @@
             this.Controls.Add(this.first);
             this.Controls.Add(this.data);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.MaximizeBox = false;
             this.Name = "Seller";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Seller";
@@ -351,7 +340,6 @@
         private System.Windows.Forms.TextBox first;
         private System.Windows.Forms.Label sign;
         private System.Windows.Forms.CheckBox chSign;
-        private System.Windows.Forms.Label helper;
         private System.Windows.Forms.Button delete;
         private System.Windows.Forms.Button edit;
         private System.Windows.Forms.Button Clear;

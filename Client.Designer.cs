@@ -39,7 +39,6 @@
             this.second = new System.Windows.Forms.TextBox();
             this.first = new System.Windows.Forms.TextBox();
             this.building = new System.Windows.Forms.Label();
-            this.helper = new System.Windows.Forms.Label();
             this.delete = new System.Windows.Forms.Button();
             this.edit = new System.Windows.Forms.Button();
             this.Clear = new System.Windows.Forms.Button();
@@ -72,7 +71,7 @@
             // phone
             // 
             this.phone.AutoSize = true;
-            this.phone.Location = new System.Drawing.Point(39, 454);
+            this.phone.Location = new System.Drawing.Point(39, 450);
             this.phone.Name = "phone";
             this.phone.Size = new System.Drawing.Size(52, 13);
             this.phone.TabIndex = 74;
@@ -148,15 +147,6 @@
             this.building.Size = new System.Drawing.Size(55, 13);
             this.building.TabIndex = 76;
             this.building.Text = "Строение";
-            // 
-            // helper
-            // 
-            this.helper.AutoSize = true;
-            this.helper.Location = new System.Drawing.Point(265, 530);
-            this.helper.Name = "helper";
-            this.helper.Size = new System.Drawing.Size(364, 13);
-            this.helper.TabIndex = 81;
-            this.helper.Text = "Для удаления и изменения записи достаточно ввести идентификатор";
             // 
             // delete
             // 
@@ -249,7 +239,7 @@
             // 
             this.reset.Location = new System.Drawing.Point(866, 419);
             this.reset.Name = "reset";
-            this.reset.Size = new System.Drawing.Size(69, 42);
+            this.reset.Size = new System.Drawing.Size(73, 42);
             this.reset.TabIndex = 138;
             this.reset.Text = "Сбросить";
             this.reset.UseVisualStyleBackColor = true;
@@ -307,7 +297,6 @@
             this.Controls.Add(this.six);
             this.Controls.Add(this.info);
             this.Controls.Add(this.warning);
-            this.Controls.Add(this.helper);
             this.Controls.Add(this.delete);
             this.Controls.Add(this.edit);
             this.Controls.Add(this.Clear);
@@ -324,6 +313,7 @@
             this.Controls.Add(this.first);
             this.Controls.Add(this.data);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.MaximizeBox = false;
             this.Name = "Client";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Client";
@@ -346,7 +336,6 @@
         private System.Windows.Forms.TextBox second;
         private System.Windows.Forms.TextBox first;
         private System.Windows.Forms.Label building;
-        private System.Windows.Forms.Label helper;
         private System.Windows.Forms.Button delete;
         private System.Windows.Forms.Button edit;
         private System.Windows.Forms.Button Clear;

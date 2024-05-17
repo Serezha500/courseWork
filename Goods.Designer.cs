@@ -31,7 +31,6 @@
             this.data = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.warning = new System.Windows.Forms.Label();
-            this.helper = new System.Windows.Forms.Label();
             this.delete = new System.Windows.Forms.Button();
             this.edit = new System.Windows.Forms.Button();
             this.Clear = new System.Windows.Forms.Button();
@@ -63,7 +62,6 @@
             this.labelProducer = new System.Windows.Forms.Label();
             this.producer = new System.Windows.Forms.TextBox();
             this.code = new System.Windows.Forms.PictureBox();
-            this.labelCode = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.search = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.data)).BeginInit();
@@ -104,15 +102,6 @@
             this.warning.TabIndex = 128;
             this.warning.Text = "Некорректно введены данные";
             this.warning.Visible = false;
-            // 
-            // helper
-            // 
-            this.helper.AutoSize = true;
-            this.helper.Location = new System.Drawing.Point(255, 533);
-            this.helper.Name = "helper";
-            this.helper.Size = new System.Drawing.Size(356, 13);
-            this.helper.TabIndex = 127;
-            this.helper.Text = "Для удаления и изменения записи достаточно ввести номер товара";
             // 
             // delete
             // 
@@ -372,28 +361,20 @@
             this.code.TabIndex = 150;
             this.code.TabStop = false;
             // 
-            // labelCode
-            // 
-            this.labelCode.AutoSize = true;
-            this.labelCode.Location = new System.Drawing.Point(601, 476);
-            this.labelCode.Name = "labelCode";
-            this.labelCode.Size = new System.Drawing.Size(59, 13);
-            this.labelCode.TabIndex = 151;
-            this.labelCode.Text = "Штрих-код";
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(255, 504);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label2.Location = new System.Drawing.Point(255, 501);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(311, 13);
+            this.label2.Size = new System.Drawing.Size(393, 16);
             this.label2.TabIndex = 152;
             this.label2.Text = "Отображать только продукты, имеющие сертификат соотв.";
             // 
             // search
             // 
             this.search.AutoSize = true;
-            this.search.Location = new System.Drawing.Point(572, 503);
+            this.search.Location = new System.Drawing.Point(648, 503);
             this.search.Name = "search";
             this.search.Size = new System.Drawing.Size(15, 14);
             this.search.TabIndex = 153;
@@ -407,7 +388,6 @@
             this.ClientSize = new System.Drawing.Size(984, 561);
             this.Controls.Add(this.search);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.labelCode);
             this.Controls.Add(this.code);
             this.Controls.Add(this.labelProducer);
             this.Controls.Add(this.producer);
@@ -431,7 +411,6 @@
             this.Controls.Add(this.begin);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.warning);
-            this.Controls.Add(this.helper);
             this.Controls.Add(this.delete);
             this.Controls.Add(this.edit);
             this.Controls.Add(this.Clear);
@@ -459,7 +438,6 @@
         private System.Windows.Forms.DataGridView data;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label warning;
-        private System.Windows.Forms.Label helper;
         private System.Windows.Forms.Button delete;
         private System.Windows.Forms.Button edit;
         private System.Windows.Forms.Button Clear;
@@ -491,7 +469,6 @@
         private System.Windows.Forms.Label labelProducer;
         private System.Windows.Forms.TextBox producer;
         private System.Windows.Forms.PictureBox code;
-        private System.Windows.Forms.Label labelCode;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.CheckBox search;
     }

@@ -41,7 +41,6 @@
             this.id = new System.Windows.Forms.Label();
             this.cash = new System.Windows.Forms.Label();
             this.chCash = new System.Windows.Forms.CheckBox();
-            this.helper = new System.Windows.Forms.Label();
             this.delete = new System.Windows.Forms.Button();
             this.edit = new System.Windows.Forms.Button();
             this.Clear = new System.Windows.Forms.Button();
@@ -167,15 +166,6 @@
             this.chCash.TabIndex = 89;
             this.chCash.UseVisualStyleBackColor = true;
             // 
-            // helper
-            // 
-            this.helper.AutoSize = true;
-            this.helper.Location = new System.Drawing.Point(281, 534);
-            this.helper.Name = "helper";
-            this.helper.Size = new System.Drawing.Size(364, 13);
-            this.helper.TabIndex = 95;
-            this.helper.Text = "Для удаления и изменения записи достаточно ввести идентификатор";
-            // 
             // delete
             // 
             this.delete.Location = new System.Drawing.Point(43, 519);
@@ -251,7 +241,7 @@
             // 
             this.reset.Location = new System.Drawing.Point(822, 346);
             this.reset.Name = "reset";
-            this.reset.Size = new System.Drawing.Size(69, 42);
+            this.reset.Size = new System.Drawing.Size(73, 42);
             this.reset.TabIndex = 134;
             this.reset.Text = "Сбросить";
             this.reset.UseVisualStyleBackColor = true;
@@ -307,7 +297,6 @@
             this.Controls.Add(this.search);
             this.Controls.Add(this.info);
             this.Controls.Add(this.warning);
-            this.Controls.Add(this.helper);
             this.Controls.Add(this.delete);
             this.Controls.Add(this.edit);
             this.Controls.Add(this.Clear);
@@ -350,7 +339,6 @@
         private System.Windows.Forms.Label id;
         private System.Windows.Forms.Label cash;
         private System.Windows.Forms.CheckBox chCash;
-        private System.Windows.Forms.Label helper;
         private System.Windows.Forms.Button delete;
         private System.Windows.Forms.Button edit;
         private System.Windows.Forms.Button Clear;

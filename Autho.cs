@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data;
+using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -14,6 +15,43 @@ namespace courseWork
         {
             InitializeComponent();
             Warehouse.npgsql.Open(); // Открытие подключения к БД
+            try
+            {
+                using(StreamReader sr = new StreamReader("password.txt"))
+                {
+                    string[] str = sr.ReadToEnd().Split(new char[]{'\r', '\n'}, StringSplitOptions.RemoveEmptyEntries);
+                    for (int i = 0; i < str.Length; i++)
+                    {
+                        string[] strNew = str[i].Split(':');
+                        if (strNew[0] == "Минимальная длина пароля")
+                            Password.MinLength = Convert.ToUInt32(strNew[1]);
+                        if (strNew[0] == "Максимальная длина пароля")
+                            Password.MaxLength = Convert.ToUInt32(strNew[1]);
+                        if (strNew[0] == "Верхний регистр")
+                            Password.UpCase = Convert.ToBoolean(strNew[1]);
+                        if (strNew[0] == "Специальные символы")
+                            Password.SpecSym = Convert.ToBoolean(strNew[1]);
+                        if (strNew[0] == "Срок действия пароля (дней)")
+                            Password.Days = Convert.ToUInt32(strNew[1]);
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                Password.MinLength = 7;
+                Password.MaxLength = 15;
+                Password.UpCase = true;
+                Password.SpecSym = true;
+                Password.Days = 7;
+                using (StreamWriter streamWriter = new StreamWriter("password.txt", false))
+                {
+                    streamWriter.WriteLine($"Минимальная длина пароля: 7");
+                    streamWriter.WriteLine($"Максимальная длина пароля: 15");
+                    streamWriter.WriteLine($"Верхний регистр: True");
+                    streamWriter.WriteLine($"Специальные символы: True");
+                    streamWriter.WriteLine($"Срок действия пароля (дней): 7");
+                }
+            }
         }
         private void checkUser_Click(object sender, EventArgs e)
         {
@@ -29,6 +67,10 @@ namespace courseWork
                             dataTable.Rows[i]["login"].ToString(), Convert.ToBoolean(dataTable.Rows[i]["chClient"]), Convert.ToBoolean(dataTable.Rows[i]["chCount"]),
                             Convert.ToBoolean(dataTable.Rows[i]["chSeller"]), Convert.ToBoolean(dataTable.Rows[i]["chGoods"]), Convert.ToBoolean(dataTable.Rows[i]["chGoodsInvoice"]), Convert.ToBoolean(dataTable.Rows[i]["chAccounts"]), Convert.ToBoolean(dataTable.Rows[i]["chInvoice"]), dataTable.Rows[i]["accessClient"].ToString(),
                             dataTable.Rows[i]["accessCount"].ToString(), dataTable.Rows[i]["accessSeller"].ToString(), dataTable.Rows[i]["accessGoods"].ToString(), dataTable.Rows[i]["accessGoodsInvoice"].ToString(), dataTable.Rows[i]["accessAccounts"].ToString(), dataTable.Rows[i]["accessInvoice"].ToString());
+                        if (Convert.ToDateTime(dataTable.Rows[i]["dateUpdate"]).CompareTo(DateTime.Now.Date) < 0)
+                        {
+                            warehouse.CurrentUser.NeedUpdate = true;
+                        }
                         warehouse.ShowDialog(); // Проверка логина и пароля пользователя, создание объекта User, открытие формы работы с БД
                     }
                     else

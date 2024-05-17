@@ -37,6 +37,7 @@
             this.accounts = new System.Windows.Forms.Button();
             this.exit = new System.Windows.Forms.Button();
             this.helper = new System.Windows.Forms.Button();
+            this.warn = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // client
@@ -129,11 +130,22 @@
             this.helper.UseVisualStyleBackColor = true;
             this.helper.Click += new System.EventHandler(this.helper_Click);
             // 
+            // warn
+            // 
+            this.warn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.warn.Location = new System.Drawing.Point(170, 239);
+            this.warn.Name = "warn";
+            this.warn.Size = new System.Drawing.Size(330, 138);
+            this.warn.TabIndex = 10;
+            this.warn.Text = "Данному пользователю необходимо обновить пароль, после чего перезайти";
+            this.warn.Visible = false;
+            // 
             // Warehouse
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(621, 558);
+            this.Controls.Add(this.warn);
             this.Controls.Add(this.helper);
             this.Controls.Add(this.exit);
             this.Controls.Add(this.accounts);
@@ -144,10 +156,10 @@
             this.Controls.Add(this.count);
             this.Controls.Add(this.client);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.MaximizeBox = false;
             this.Name = "Warehouse";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Склад товаров";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Warehouse_FormClosed);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
 
@@ -163,6 +175,7 @@
         private System.Windows.Forms.Button accounts;
         private System.Windows.Forms.Button exit;
         private System.Windows.Forms.Button helper;
+        private System.Windows.Forms.Label warn;
     }
 }
 

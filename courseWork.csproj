@@ -214,6 +214,7 @@
     <Compile Include="Invoice.Designer.cs">
       <DependentUpon>Invoice.cs</DependentUpon>
     </Compile>
+    <Compile Include="Password.cs" />
     <Compile Include="Seller.cs">
       <SubType>Form</SubType>
     </Compile>

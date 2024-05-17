@@ -89,10 +89,17 @@ namespace courseWork
         private void delete_Click(object sender, EventArgs e)
         {
             warning.Visible = false;
-            NpgsqlCommand npgsqlC = new NpgsqlCommand($"DELETE FROM seller WHERE \"INN\" = @p1", Warehouse.npgsql);
-            npgsqlC.Parameters.AddWithValue("p1", fifth.Text);
-            npgsqlC.ExecuteNonQuery(); // Удаление записи
-            Warehouse.txt.WriteLine($"Пользователь {Warehouse.currentUser.Surname} {Warehouse.currentUser.Name} {Warehouse.currentUser.Patronymic} удалил запись в таблице Seller в {DateTime.Now}: \"SellerN\", \"Street\", \"Building\", \"Phone\",\"INN\", \"Sign\" - '{first.Text}', '{second.Text}', '{third.Text}', '{fourth.Text}', '{fifth.Text}', {chSign.Checked}"); // Логирование
+            try
+            {
+                NpgsqlCommand npgsqlC = new NpgsqlCommand($"DELETE FROM seller WHERE \"INN\" = @p1", Warehouse.npgsql);
+                npgsqlC.Parameters.AddWithValue("p1", fifth.Text);
+                npgsqlC.ExecuteNonQuery(); // Удаление записи
+                Warehouse.txt.WriteLine($"Пользователь {Warehouse.currentUser.Surname} {Warehouse.currentUser.Name} {Warehouse.currentUser.Patronymic} удалил запись в таблице Seller в {DateTime.Now}: \"SellerN\", \"Street\", \"Building\", \"Phone\",\"INN\", \"Sign\" - '{first.Text}', '{second.Text}', '{third.Text}', '{fourth.Text}', '{fifth.Text}', {chSign.Checked}"); // Логирование
+            }
+            catch (Exception)
+            {
+                warning.Visible = true;
+            }
             data.DataSource = Warehouse.GetData("SELECT * from seller"); // Обновление данных в грид вью 
         }
 

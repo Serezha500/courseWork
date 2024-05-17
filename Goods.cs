@@ -64,10 +64,17 @@ namespace courseWork
         private void delete_Click(object sender, EventArgs e)
         {
             warning.Visible = false;
-            NpgsqlCommand npgsqlC = new NpgsqlCommand($"DELETE FROM goods WHERE \"GoodsID\" = @p1", Warehouse.npgsql);
-            npgsqlC.Parameters.AddWithValue("p1", Convert.ToInt32(goodsID.Text));
-            npgsqlC.ExecuteNonQuery(); // Удаление записи
-            Warehouse.txt.WriteLine($"Пользователь {Warehouse.currentUser.Surname} {Warehouse.currentUser.Name} {Warehouse.currentUser.Patronymic} удалил запись в таблице Goods в {DateTime.Now}: \"GoodsID\", \"Name\", \"Begin\", \"End\", \"NumberYes\", \"DateYes\", \"Producer\", \"Instructions\", \"Batch\", \"INN\", \"ClientID\" - '{goodsID.Text}', '{name.Text}', '{begin.Text}', '{end.Text}', '{numberYes.Checked}', '{dateYes.Text}', '{producer.Text}', '{instructions.Text}', '{batch.Text}', '{INN.Text}', '{clientID.Text}', '{goodsInvoiceN.Text}'"); // Логирование
+            try
+            {
+                NpgsqlCommand npgsqlC = new NpgsqlCommand($"DELETE FROM goods WHERE \"GoodsID\" = @p1", Warehouse.npgsql);
+                npgsqlC.Parameters.AddWithValue("p1", Convert.ToInt32(goodsID.Text));
+                npgsqlC.ExecuteNonQuery(); // Удаление записи
+                Warehouse.txt.WriteLine($"Пользователь {Warehouse.currentUser.Surname} {Warehouse.currentUser.Name} {Warehouse.currentUser.Patronymic} удалил запись в таблице Goods в {DateTime.Now}: \"GoodsID\", \"Name\", \"Begin\", \"End\", \"NumberYes\", \"DateYes\", \"Producer\", \"Instructions\", \"Batch\", \"INN\", \"ClientID\" - '{goodsID.Text}', '{name.Text}', '{begin.Text}', '{end.Text}', '{numberYes.Checked}', '{dateYes.Text}', '{producer.Text}', '{instructions.Text}', '{batch.Text}', '{INN.Text}', '{clientID.Text}', '{goodsInvoiceN.Text}'"); // Логирование
+            }
+            catch (Exception)
+            {
+                warning.Visible = true;
+            }
             data.DataSource = Warehouse.GetData("SELECT * from goods"); // Обновление данных в грид вью
         }
 

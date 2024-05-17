@@ -58,7 +58,6 @@
             this.Clear = new System.Windows.Forms.Button();
             this.edit = new System.Windows.Forms.Button();
             this.delete = new System.Windows.Forms.Button();
-            this.helper = new System.Windows.Forms.Label();
             this.info = new System.Windows.Forms.Label();
             this.role = new System.Windows.Forms.ComboBox();
             this.roleText = new System.Windows.Forms.Label();
@@ -74,6 +73,18 @@
             this.searchButton = new System.Windows.Forms.Button();
             this.reset = new System.Windows.Forms.Button();
             this.labelSearch = new System.Windows.Forms.Label();
+            this.password = new System.Windows.Forms.Label();
+            this.min = new System.Windows.Forms.Label();
+            this.max = new System.Windows.Forms.Label();
+            this.up = new System.Windows.Forms.Label();
+            this.spec = new System.Windows.Forms.Label();
+            this.term = new System.Windows.Forms.Label();
+            this.minLength = new System.Windows.Forms.TextBox();
+            this.maxLength = new System.Windows.Forms.TextBox();
+            this.termPass = new System.Windows.Forms.TextBox();
+            this.specSym = new System.Windows.Forms.CheckBox();
+            this.upCase = new System.Windows.Forms.CheckBox();
+            this.update = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.data)).BeginInit();
             this.SuspendLayout();
             // 
@@ -85,7 +96,7 @@
             this.data.Location = new System.Drawing.Point(0, 0);
             this.data.Name = "data";
             this.data.ReadOnly = true;
-            this.data.Size = new System.Drawing.Size(984, 229);
+            this.data.Size = new System.Drawing.Size(1341, 229);
             this.data.TabIndex = 1;
             this.data.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.data_CellClick);
             // 
@@ -210,6 +221,7 @@
             // chInvoice
             // 
             this.chInvoice.AutoSize = true;
+            this.chInvoice.Enabled = false;
             this.chInvoice.Location = new System.Drawing.Point(473, 502);
             this.chInvoice.Name = "chInvoice";
             this.chInvoice.Size = new System.Drawing.Size(15, 14);
@@ -219,6 +231,7 @@
             // chAccounts
             // 
             this.chAccounts.AutoSize = true;
+            this.chAccounts.Enabled = false;
             this.chAccounts.Location = new System.Drawing.Point(473, 469);
             this.chAccounts.Name = "chAccounts";
             this.chAccounts.Size = new System.Drawing.Size(15, 14);
@@ -228,6 +241,7 @@
             // chGoods
             // 
             this.chGoods.AutoSize = true;
+            this.chGoods.Enabled = false;
             this.chGoods.Location = new System.Drawing.Point(473, 401);
             this.chGoods.Name = "chGoods";
             this.chGoods.Size = new System.Drawing.Size(15, 14);
@@ -237,6 +251,7 @@
             // chSeller
             // 
             this.chSeller.AutoSize = true;
+            this.chSeller.Enabled = false;
             this.chSeller.Location = new System.Drawing.Point(473, 364);
             this.chSeller.Name = "chSeller";
             this.chSeller.Size = new System.Drawing.Size(15, 14);
@@ -246,6 +261,7 @@
             // chGoodsInvoice
             // 
             this.chGoodsInvoice.AutoSize = true;
+            this.chGoodsInvoice.Enabled = false;
             this.chGoodsInvoice.Location = new System.Drawing.Point(473, 434);
             this.chGoodsInvoice.Name = "chGoodsInvoice";
             this.chGoodsInvoice.Size = new System.Drawing.Size(15, 14);
@@ -255,6 +271,7 @@
             // chCount
             // 
             this.chCount.AutoSize = true;
+            this.chCount.Enabled = false;
             this.chCount.Location = new System.Drawing.Point(473, 327);
             this.chCount.Name = "chCount";
             this.chCount.Size = new System.Drawing.Size(15, 14);
@@ -264,6 +281,7 @@
             // chClient
             // 
             this.chClient.AutoSize = true;
+            this.chClient.Enabled = false;
             this.chClient.Location = new System.Drawing.Point(473, 291);
             this.chClient.Name = "chClient";
             this.chClient.Size = new System.Drawing.Size(15, 14);
@@ -346,15 +364,6 @@
             this.delete.UseVisualStyleBackColor = true;
             this.delete.Click += new System.EventHandler(this.delete_Click);
             // 
-            // helper
-            // 
-            this.helper.AutoSize = true;
-            this.helper.Location = new System.Drawing.Point(279, 532);
-            this.helper.Name = "helper";
-            this.helper.Size = new System.Drawing.Size(318, 13);
-            this.helper.TabIndex = 64;
-            this.helper.Text = "Для удаления и изменения записи достаточно ввести логин ";
-            // 
             // info
             // 
             this.info.AutoSize = true;
@@ -382,10 +391,10 @@
             // roleText
             // 
             this.roleText.AutoSize = true;
-            this.roleText.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.roleText.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.roleText.Location = new System.Drawing.Point(322, 246);
             this.roleText.Name = "roleText";
-            this.roleText.Size = new System.Drawing.Size(82, 13);
+            this.roleText.Size = new System.Drawing.Size(71, 13);
             this.roleText.TabIndex = 119;
             this.roleText.Text = "Должность: ";
             this.roleText.Visible = false;
@@ -393,10 +402,10 @@
             // access
             // 
             this.access.AutoSize = true;
-            this.access.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.access.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.access.Location = new System.Drawing.Point(620, 238);
             this.access.Name = "access";
-            this.access.Size = new System.Drawing.Size(365, 65);
+            this.access.Size = new System.Drawing.Size(309, 65);
             this.access.TabIndex = 120;
             this.access.Text = "Доступ: \r\n0 - только чтение записей\r\n1 - редактирование и чтение записей\r\n2 - ред" +
     "актирование, чтение и добавление записей\r\n3 - редактирование, чтение, добавление" +
@@ -405,6 +414,7 @@
             // accessClient
             // 
             this.accessClient.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.accessClient.Enabled = false;
             this.accessClient.FormattingEnabled = true;
             this.accessClient.Items.AddRange(new object[] {
             "0",
@@ -419,6 +429,7 @@
             // accessCount
             // 
             this.accessCount.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.accessCount.Enabled = false;
             this.accessCount.FormattingEnabled = true;
             this.accessCount.Items.AddRange(new object[] {
             "0",
@@ -433,6 +444,7 @@
             // accessSeller
             // 
             this.accessSeller.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.accessSeller.Enabled = false;
             this.accessSeller.FormattingEnabled = true;
             this.accessSeller.Items.AddRange(new object[] {
             "0",
@@ -447,6 +459,7 @@
             // accessGoods
             // 
             this.accessGoods.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.accessGoods.Enabled = false;
             this.accessGoods.FormattingEnabled = true;
             this.accessGoods.Items.AddRange(new object[] {
             "0",
@@ -461,6 +474,7 @@
             // accessGoodsInvoice
             // 
             this.accessGoodsInvoice.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.accessGoodsInvoice.Enabled = false;
             this.accessGoodsInvoice.FormattingEnabled = true;
             this.accessGoodsInvoice.Items.AddRange(new object[] {
             "0",
@@ -475,6 +489,7 @@
             // accessAccounts
             // 
             this.accessAccounts.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.accessAccounts.Enabled = false;
             this.accessAccounts.FormattingEnabled = true;
             this.accessAccounts.Items.AddRange(new object[] {
             "0",
@@ -489,6 +504,7 @@
             // accessInvoice
             // 
             this.accessInvoice.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.accessInvoice.Enabled = false;
             this.accessInvoice.FormattingEnabled = true;
             this.accessInvoice.Items.AddRange(new object[] {
             "0",
@@ -519,9 +535,9 @@
             // 
             // reset
             // 
-            this.reset.Location = new System.Drawing.Point(822, 382);
+            this.reset.Location = new System.Drawing.Point(818, 382);
             this.reset.Name = "reset";
-            this.reset.Size = new System.Drawing.Size(69, 42);
+            this.reset.Size = new System.Drawing.Size(73, 42);
             this.reset.TabIndex = 130;
             this.reset.Text = "Сбросить";
             this.reset.UseVisualStyleBackColor = true;
@@ -537,11 +553,132 @@
             this.labelSearch.TabIndex = 131;
             this.labelSearch.Text = "Поиск пользователя по фамилии: ";
             // 
+            // password
+            // 
+            this.password.AutoSize = true;
+            this.password.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.password.Location = new System.Drawing.Point(1078, 244);
+            this.password.Name = "password";
+            this.password.Size = new System.Drawing.Size(201, 16);
+            this.password.TabIndex = 132;
+            this.password.Text = "Текущая парольная политика";
+            // 
+            // min
+            // 
+            this.min.AutoSize = true;
+            this.min.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.min.Location = new System.Drawing.Point(1078, 284);
+            this.min.Name = "min";
+            this.min.Size = new System.Drawing.Size(143, 16);
+            this.min.TabIndex = 133;
+            this.min.Text = "Минимальная длина:";
+            // 
+            // max
+            // 
+            this.max.AutoSize = true;
+            this.max.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.max.Location = new System.Drawing.Point(1072, 320);
+            this.max.Name = "max";
+            this.max.Size = new System.Drawing.Size(149, 16);
+            this.max.TabIndex = 134;
+            this.max.Text = "Максимальная длина:";
+            // 
+            // up
+            // 
+            this.up.AutoSize = true;
+            this.up.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.up.Location = new System.Drawing.Point(1101, 357);
+            this.up.Name = "up";
+            this.up.Size = new System.Drawing.Size(120, 16);
+            this.up.TabIndex = 135;
+            this.up.Text = "Верхний регистр:";
+            // 
+            // spec
+            // 
+            this.spec.AutoSize = true;
+            this.spec.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.spec.Location = new System.Drawing.Point(1115, 394);
+            this.spec.Name = "spec";
+            this.spec.Size = new System.Drawing.Size(106, 16);
+            this.spec.TabIndex = 136;
+            this.spec.Text = "Спец. символы:";
+            // 
+            // term
+            // 
+            this.term.AutoSize = true;
+            this.term.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.term.Location = new System.Drawing.Point(1078, 435);
+            this.term.Name = "term";
+            this.term.Size = new System.Drawing.Size(149, 16);
+            this.term.TabIndex = 137;
+            this.term.Text = "Срок действия (дней):";
+            // 
+            // minLength
+            // 
+            this.minLength.Location = new System.Drawing.Point(1233, 280);
+            this.minLength.Name = "minLength";
+            this.minLength.Size = new System.Drawing.Size(52, 20);
+            this.minLength.TabIndex = 138;
+            // 
+            // maxLength
+            // 
+            this.maxLength.Location = new System.Drawing.Point(1233, 319);
+            this.maxLength.Name = "maxLength";
+            this.maxLength.Size = new System.Drawing.Size(52, 20);
+            this.maxLength.TabIndex = 139;
+            // 
+            // termPass
+            // 
+            this.termPass.Location = new System.Drawing.Point(1233, 431);
+            this.termPass.Name = "termPass";
+            this.termPass.Size = new System.Drawing.Size(52, 20);
+            this.termPass.TabIndex = 140;
+            // 
+            // specSym
+            // 
+            this.specSym.AutoSize = true;
+            this.specSym.Location = new System.Drawing.Point(1250, 396);
+            this.specSym.Name = "specSym";
+            this.specSym.Size = new System.Drawing.Size(15, 14);
+            this.specSym.TabIndex = 141;
+            this.specSym.UseVisualStyleBackColor = true;
+            // 
+            // upCase
+            // 
+            this.upCase.AutoSize = true;
+            this.upCase.Location = new System.Drawing.Point(1250, 359);
+            this.upCase.Name = "upCase";
+            this.upCase.Size = new System.Drawing.Size(15, 14);
+            this.upCase.TabIndex = 142;
+            this.upCase.UseVisualStyleBackColor = true;
+            // 
+            // update
+            // 
+            this.update.Location = new System.Drawing.Point(1139, 483);
+            this.update.Name = "update";
+            this.update.Size = new System.Drawing.Size(113, 42);
+            this.update.TabIndex = 143;
+            this.update.Text = "Обновить";
+            this.update.UseVisualStyleBackColor = true;
+            this.update.Click += new System.EventHandler(this.update_Click);
+            // 
             // Accounts
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(984, 561);
+            this.ClientSize = new System.Drawing.Size(1341, 561);
+            this.Controls.Add(this.update);
+            this.Controls.Add(this.upCase);
+            this.Controls.Add(this.specSym);
+            this.Controls.Add(this.termPass);
+            this.Controls.Add(this.maxLength);
+            this.Controls.Add(this.minLength);
+            this.Controls.Add(this.term);
+            this.Controls.Add(this.spec);
+            this.Controls.Add(this.up);
+            this.Controls.Add(this.max);
+            this.Controls.Add(this.min);
+            this.Controls.Add(this.password);
             this.Controls.Add(this.labelSearch);
             this.Controls.Add(this.reset);
             this.Controls.Add(this.searchButton);
@@ -557,7 +694,6 @@
             this.Controls.Add(this.roleText);
             this.Controls.Add(this.role);
             this.Controls.Add(this.info);
-            this.Controls.Add(this.helper);
             this.Controls.Add(this.delete);
             this.Controls.Add(this.edit);
             this.Controls.Add(this.Clear);
@@ -589,6 +725,7 @@
             this.Controls.Add(this.first);
             this.Controls.Add(this.data);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.MaximizeBox = false;
             this.Name = "Accounts";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Accounts";
@@ -630,7 +767,6 @@
         private System.Windows.Forms.Button Clear;
         private System.Windows.Forms.Button edit;
         private System.Windows.Forms.Button delete;
-        private System.Windows.Forms.Label helper;
         private System.Windows.Forms.Label info;
         private System.Windows.Forms.ComboBox role;
         private System.Windows.Forms.Label roleText;
@@ -646,5 +782,17 @@
         private System.Windows.Forms.Button searchButton;
         private System.Windows.Forms.Button reset;
         private System.Windows.Forms.Label labelSearch;
+        private System.Windows.Forms.Label password;
+        private System.Windows.Forms.Label min;
+        private System.Windows.Forms.Label max;
+        private System.Windows.Forms.Label up;
+        private System.Windows.Forms.Label spec;
+        private System.Windows.Forms.Label term;
+        private System.Windows.Forms.TextBox minLength;
+        private System.Windows.Forms.TextBox maxLength;
+        private System.Windows.Forms.TextBox termPass;
+        private System.Windows.Forms.CheckBox specSym;
+        private System.Windows.Forms.CheckBox upCase;
+        private System.Windows.Forms.Button update;
     }
 }

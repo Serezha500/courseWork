@@ -35,7 +35,6 @@
             this.third = new System.Windows.Forms.TextBox();
             this.second = new System.Windows.Forms.TextBox();
             this.first = new System.Windows.Forms.TextBox();
-            this.helper = new System.Windows.Forms.Label();
             this.delete = new System.Windows.Forms.Button();
             this.edit = new System.Windows.Forms.Button();
             this.Clear = new System.Windows.Forms.Button();
@@ -47,7 +46,6 @@
             this.searchButton = new System.Windows.Forms.Button();
             this.search1 = new System.Windows.Forms.TextBox();
             this.search2 = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.data)).BeginInit();
             this.SuspendLayout();
             // 
@@ -110,15 +108,6 @@
             this.first.Name = "first";
             this.first.Size = new System.Drawing.Size(162, 20);
             this.first.TabIndex = 89;
-            // 
-            // helper
-            // 
-            this.helper.AutoSize = true;
-            this.helper.Location = new System.Drawing.Point(313, 479);
-            this.helper.Name = "helper";
-            this.helper.Size = new System.Drawing.Size(376, 13);
-            this.helper.TabIndex = 100;
-            this.helper.Text = "Для удаления и изменения записи достаточно ввести номер ведомости";
             // 
             // delete
             // 
@@ -225,22 +214,11 @@
             this.search2.Size = new System.Drawing.Size(73, 20);
             this.search2.TabIndex = 140;
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(716, 388);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(11, 16);
-            this.label2.TabIndex = 141;
-            this.label2.Text = "-";
-            // 
             // Goods_invoice
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(984, 561);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.search2);
             this.Controls.Add(this.labelSearch);
             this.Controls.Add(this.reset);
@@ -248,7 +226,6 @@
             this.Controls.Add(this.search1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.warning);
-            this.Controls.Add(this.helper);
             this.Controls.Add(this.delete);
             this.Controls.Add(this.edit);
             this.Controls.Add(this.Clear);
@@ -261,6 +238,7 @@
             this.Controls.Add(this.first);
             this.Controls.Add(this.data);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.MaximizeBox = false;
             this.Name = "Goods_invoice";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Goods_invoice";
@@ -279,7 +257,6 @@
         private System.Windows.Forms.TextBox third;
         private System.Windows.Forms.TextBox second;
         private System.Windows.Forms.TextBox first;
-        private System.Windows.Forms.Label helper;
         private System.Windows.Forms.Button delete;
         private System.Windows.Forms.Button edit;
         private System.Windows.Forms.Button Clear;
@@ -291,6 +268,5 @@
         private System.Windows.Forms.Button searchButton;
         private System.Windows.Forms.TextBox search1;
         private System.Windows.Forms.TextBox search2;
-        private System.Windows.Forms.Label label2;
     }
 }

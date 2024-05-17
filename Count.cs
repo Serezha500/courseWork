@@ -93,10 +93,17 @@ namespace courseWork
         private void delete_Click(object sender, EventArgs e)
         {
             warning.Visible = false;
-            NpgsqlCommand npgsqlC = new NpgsqlCommand($"DELETE FROM count WHERE \"DocumentN\" = @p1", Warehouse.npgsql);
-            npgsqlC.Parameters.AddWithValue("p1", Convert.ToInt32(third.Text));
-            npgsqlC.ExecuteNonQuery(); // Удаление записи
-            Warehouse.txt.WriteLine($"Пользователь {Warehouse.currentUser.Surname} {Warehouse.currentUser.Name} {Warehouse.currentUser.Patronymic} удалил запись в таблице Count в {DateTime.Now}: \"DateStart\", \"Cash\", \"DocumentN\",\"Worker\", \"Sum\", \"ClientID\" - '{first.Text}', '{chCash.Checked}', '{third.Text}', '{second.Text}', '{fourth.Text}', '{fifth.Text}'"); // Логирование
+            try
+            {
+                NpgsqlCommand npgsqlC = new NpgsqlCommand($"DELETE FROM count WHERE \"DocumentN\" = @p1", Warehouse.npgsql);
+                npgsqlC.Parameters.AddWithValue("p1", Convert.ToInt32(third.Text));
+                npgsqlC.ExecuteNonQuery(); // Удаление записи
+                Warehouse.txt.WriteLine($"Пользователь {Warehouse.currentUser.Surname} {Warehouse.currentUser.Name} {Warehouse.currentUser.Patronymic} удалил запись в таблице Count в {DateTime.Now}: \"DateStart\", \"Cash\", \"DocumentN\",\"Worker\", \"Sum\", \"ClientID\" - '{first.Text}', '{chCash.Checked}', '{third.Text}', '{second.Text}', '{fourth.Text}', '{fifth.Text}'"); // Логирование
+            }
+            catch (Exception)
+            {
+                warning.Visible = true;
+            }
             data.DataSource = Warehouse.GetData("SELECT * from count"); // Обновление данных в грид вью
         }
 

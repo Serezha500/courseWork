@@ -79,10 +79,17 @@ namespace courseWork
         private void delete_Click(object sender, EventArgs e)
         {
             warning.Visible = false;
-            NpgsqlCommand npgsqlC = new NpgsqlCommand($"DELETE FROM invoice WHERE \"DocumentN\" = @p1", Warehouse.npgsql);
-            npgsqlC.Parameters.AddWithValue("p1", Convert.ToInt32(first.Text));
-            npgsqlC.ExecuteNonQuery(); // Удаление записи
-            Warehouse.txt.WriteLine($"Пользователь {Warehouse.currentUser.Surname} {Warehouse.currentUser.Name} {Warehouse.currentUser.Patronymic} удалил запись в таблице Invoice в {DateTime.Now}: \"DocumentN\", \"Seller\", \"INNClient\" - '{first.Text}', '{second.Text}', '{third.Text}'"); // Логирование
+            try
+            {
+                NpgsqlCommand npgsqlC = new NpgsqlCommand($"DELETE FROM invoice WHERE \"DocumentN\" = @p1", Warehouse.npgsql);
+                npgsqlC.Parameters.AddWithValue("p1", Convert.ToInt32(first.Text));
+                npgsqlC.ExecuteNonQuery(); // Удаление записи
+                Warehouse.txt.WriteLine($"Пользователь {Warehouse.currentUser.Surname} {Warehouse.currentUser.Name} {Warehouse.currentUser.Patronymic} удалил запись в таблице Invoice в {DateTime.Now}: \"DocumentN\", \"Seller\", \"INNClient\" - '{first.Text}', '{second.Text}', '{third.Text}'"); // Логирование
+            }
+            catch (Exception)
+            {
+                warning.Visible = true;
+            }
             data.DataSource = Warehouse.GetData("SELECT * from invoice"); // Обновление данных в грид вью
         }
 
